@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigitBody: {fileID: 142789655}
-  speedMultiplier: 4
+  speedMultiplier: 10
 --- !u!61 &142789657
 BoxCollider2D:
   m_ObjectHideFlags: 0
