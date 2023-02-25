@@ -5,6 +5,26 @@ using UnityEngine;
 
 public class PlatformScript : MonoBehaviour
 {
+
+    #region Singleton
+
+    private static PlatformScript _instance;
+    public static PlatformScript Instance => _instance;
+
+    private void Awake()
+    {
+        if (_instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
+
+    #endregion
+
     // Start is called before the first frame update
     void Start()
     {
