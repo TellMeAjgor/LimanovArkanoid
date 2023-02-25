@@ -50,18 +50,9 @@ public class PlatformScript : MonoBehaviour
             Vector3 hitPoint = collision.contacts[0].point;
             Vector3 platformCenter = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
 
-            ballRB.velocity = Vector2.zero;
+            float difference = hitPoint.x - platformCenter.x;
 
-            float difference = platformCenter.x -hitPoint.x;
-
-            if(hitPoint.x < platformCenter.x)
-            {
-                ballRB.AddForce(new Vector2(-(Mathf.Abs(difference * 200)), BallsManager.Instance.initialBallSpeed));
-            }
-            else
-            {
-                ballRB.AddForce(new Vector2(Mathf.Abs(difference * 200), BallsManager.Instance.initialBallSpeed));
-            }
+            ballRB.AddForce(new Vector2(difference * 200, 0));
         }
     }
 }
