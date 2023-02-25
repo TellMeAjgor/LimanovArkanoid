@@ -31,11 +31,12 @@ public class BallsManager : MonoBehaviour
 
     private Rigidbody2D initialBallRb;
 
+    private bool gameStarted = false;
+
     public float initialBallSpeed = 250;
     
     public List<Ball> Balls { get; set; }
-    
-    
+  
 
     private void Start()
     {
@@ -51,11 +52,12 @@ public class BallsManager : MonoBehaviour
             initialBall.transform.position = ballPosition;
         } 
         
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && !gameStarted)
         {
             initialBallRb.isKinematic = false;
             initialBallRb.AddForce(new Vector2(2, initialBallSpeed));
             GameManager.Instance.isGameStarted = true;
+            gameStarted = true;
         }
     }
 
