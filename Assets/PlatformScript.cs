@@ -41,4 +41,27 @@ public class PlatformScript : MonoBehaviour
         transform.position = new UnityEngine.Vector2(Mathf.Clamp(mousePosition.x, minScreenBounds.x + 1, maxScreenBounds.x - 1), transform.position.y);
 
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Ball")
+        {
+            Rigidbody2D ballRB = collision.gameObject.GetComponent<Rigidbody2D>();
+            Vector3 hitPoint = collision.contacts[0].point;
+            Vector3 platformCenter = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
+
+            ballRB.velocity = Vector2.zero;
+
+            float difference = platformCenter.x -hitPoint.x;
+
+            if(hitPoint.x < platformCenter.x)
+            {
+                ballRB.AddForce(new Vector2(-(Mathf.Abs(difference * 200)), BallsManager.Instance.initialBallSpeed));
+            }
+            else
+            {
+                ballRB.AddForce(new Vector2(Mathf.Abs(difference * 200), BallsManager.Instance.initialBallSpeed));
+            }
+        }
+    }
 }
