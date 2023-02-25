@@ -26,4 +26,37 @@ public class GameManager : MonoBehaviour
 
     public bool isGameStarted { get;set; }
 
+    public int lives { get; set; }
+    public int tmpLives = 3;
+
+    private void Start()
+    {
+        this.lives = this.tmpLives;
+        Ball.OnBallDeath += OnBallDeath;
+    }
+
+    private void OnBallDeath(Ball obj)
+    {
+        if(BallsManager.Instance.Balls.Count <= 0)
+        {
+            this.lives--;
+
+            if(this.lives<1)
+            {
+                //Wczytaj ekran przegranej
+            }
+            else
+            {
+                BallsManager.Instance.ResetBalls();
+                isGameStarted = false;
+                //Wczytaj ponownie poziom
+            }
+        }
+    }
+
+    private void OnDisable()
+    {
+        Ball.OnBallDeath -= OnBallDeath;
+    }
+
 }

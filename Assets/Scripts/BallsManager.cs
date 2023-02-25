@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BallsManager : MonoBehaviour
@@ -52,13 +53,23 @@ public class BallsManager : MonoBehaviour
             initialBall.transform.position = ballPosition;
         } 
         
-        if(Input.GetMouseButtonDown(0) && !gameStarted)
+        if(Input.GetMouseButtonDown(0) && !GameManager.Instance.isGameStarted)
         {
             initialBallRb.isKinematic = false;
             initialBallRb.AddForce(new Vector2(2, initialBallSpeed));
             GameManager.Instance.isGameStarted = true;
-            gameStarted = true;
+            
         }
+    }
+
+    public void ResetBalls()
+    {
+        foreach (var ball in this.Balls.ToList())
+        {
+            Destroy(ball.gameObject);
+        }
+
+        InitBall();
     }
 
     private void InitBall()
