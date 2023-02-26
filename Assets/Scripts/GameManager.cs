@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,11 +7,11 @@ public class GameManager : MonoBehaviour
     #region Singleton
 
     private static GameManager _instance;
-    public static GameManager Instance=>_instance;
+    public static GameManager Instance => _instance;
 
     private void Awake()
     {
-        if(_instance != null)
+        if (_instance != null)
         {
             Destroy(gameObject);
         }
@@ -24,10 +23,15 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    public bool isGameStarted { get;set; }
+
+
+    public bool isGameStarted { get; set; }
+    public int Score { get; set; }
 
     public int lives { get; set; }
     public int tmpLives = 3;
+
+    public int Level = 1;
 
     private void Start()
     {
@@ -37,21 +41,35 @@ public class GameManager : MonoBehaviour
 
     private void OnBallDeath(Ball obj)
     {
-        if(BallsManager.Instance.Balls.Count <= 0)
+        if (BallsManager.Instance.Balls.Count <= 0)
         {
             this.lives--;
 
-            if(this.lives<1)
+            if (this.lives < 1)
             {
                 //Wczytaj ekran przegranej
             }
             else
             {
-                BallsManager.Instance.ResetBalls();
-                isGameStarted = false;
+                ResetBallPosition();
                 //Wczytaj ponownie poziom
             }
         }
+    }
+
+    private void ResetBallPosition()
+    {
+        BallsManager.Instance.ResetBalls();
+        isGameStarted = false;
+    }
+
+    public void LoadNextLevel()
+    {
+        ResetBallPosition();
+
+        Level++;
+        SceneManager.LoadScene("Level" + Level.ToString(), LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync("Level" + (Level - 1).ToString());
     }
 
     private void OnDisable()

@@ -33,7 +33,7 @@ public class BlocksManager : MonoBehaviour
     {
         if (!GameManager.Instance.isGameStarted)
         {
-            InitBlock(new Vector2(0, 0));
+            /*InitBlock(new Vector2(0, 0));*/
         }
     }
 

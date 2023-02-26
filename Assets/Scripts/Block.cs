@@ -7,6 +7,9 @@ public class Block : MonoBehaviour
 {
     // Start is called before the first frame update
     public int HitPoints = 1;
+    public int Points = 1;
+
+
     public ParticleSystem DestroyEffect;
 
     public static event Action<Block> OnBrickDestruction;
@@ -20,18 +23,40 @@ public class Block : MonoBehaviour
     private void ApplyCollisionLogic(Ball ball)
     {
         this.HitPoints--;
-        print(HitPoints);
 
         if (this.HitPoints <= 0)
         {
             OnBrickDestruction?.Invoke(this);
             SpawnDestroyEffect();
+            if (this.tag == "SilverBlock")
+            {
+                // pomno¿yæ przez zmienn¹ lvl
+                GameManager.Instance.Score += this.Points;
+            }
+            else
+            {
+                GameManager.Instance.Score += this.Points;
+            }
+            
             Destroy(this.gameObject);
-        }
-        else
-        {
 
+            if(LevelFinished())
+            {
+                GameManager.Instance.LoadNextLevel();
+            }
+            
         }
+
+    }
+    
+    private bool LevelFinished()
+    {
+        
+        if(GameObject.FindGameObjectsWithTag("Block").Length > (this.tag=="Block"?1:0) || GameObject.FindGameObjectsWithTag("SilverBlock").Length > (this.tag == "SilverBlock" ? 1 : 0))
+        {
+            return false;
+        }
+        return true;
     }
 
     private void SpawnDestroyEffect()
