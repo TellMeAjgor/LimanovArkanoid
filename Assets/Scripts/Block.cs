@@ -27,11 +27,11 @@ public class Block : MonoBehaviour
         if (this.HitPoints <= 0)
         {
             OnBrickDestruction?.Invoke(this);
+            OnBrickDestroy();
             SpawnDestroyEffect();
             if (this.tag == "SilverBlock")
             {
-                // pomno¿yæ przez zmienn¹ lvl
-                GameManager.Instance.Score += this.Points;
+                GameManager.Instance.Score += this.Points*GameManager.Instance.Level;
             }
             else
             {
@@ -65,6 +65,34 @@ public class Block : MonoBehaviour
         Vector3 spawnPosition = new Vector3(brickPos.x, brickPos.y, brickPos.z - 0.2f);
         GameObject effect = Instantiate(DestroyEffect.gameObject, spawnPosition, Quaternion.identity);
         Destroy(effect, DestroyEffect.main.startLifetime.constant);
+    }
+
+    public void OnBrickDestroy()
+    {
+        float spawnChance = UnityEngine.Random.Range(0, 100f);
+
+
+        if(spawnChance<CollectableManager.Instance.Chance)
+        {
+            Collectable buff = this.SpawnCollectable();
+        }
+    }
+
+    private Collectable SpawnCollectable()
+    {
+        List<Collectable> collection;
+
+        collection = CollectableManager.Instance.Available;
+
+        int index= UnityEngine.Random.Range(0, collection.Count);
+        Collectable prefab = collection[index];
+        Collectable newCollectable = Instantiate(prefab, this.transform.position, Quaternion.identity) as Collectable;
+
+        Rigidbody2D newCollectableRb = newCollectable.GetComponent<Rigidbody2D>();
+        newCollectableRb.AddForce(new Vector2(0, -100));
+        CollectableManager.Instance.Spawned.Add(newCollectable);
+
+        return newCollectable;
     }
 
 

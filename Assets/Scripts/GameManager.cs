@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
     public void LoadNextLevel()
     {
         ResetBallPosition();
+        CollectableManager.Instance.ResetCollectables();
 
         Level++;
         SceneManager.LoadScene("Level" + Level.ToString(), LoadSceneMode.Additive);
