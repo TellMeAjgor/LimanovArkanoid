@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using static System.Net.Mime.MediaTypeNames;
 
 public class GameManager : MonoBehaviour
 {
@@ -37,6 +39,7 @@ public class GameManager : MonoBehaviour
     {
         this.lives = this.tmpLives;
         Ball.OnBallDeath += OnBallDeath;
+        TextManager.Instance.updateLivesText();
     }
 
     private void OnBallDeath(Ball obj)
@@ -44,6 +47,7 @@ public class GameManager : MonoBehaviour
         if (BallsManager.Instance.Balls.Count <= 0)
         {
             this.lives--;
+            TextManager.Instance.updateLivesText();
 
             if (this.lives < 1)
             {
@@ -69,6 +73,8 @@ public class GameManager : MonoBehaviour
         CollectableManager.Instance.ResetCollectables();
 
         Level++;
+        lives = tmpLives;
+        TextManager.Instance.updateLivesText();
         SceneManager.LoadScene("Level" + Level.ToString(), LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync("Level" + (Level - 1).ToString());
     }
