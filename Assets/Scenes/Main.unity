@@ -316,7 +316,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Available:
   - {fileID: 8694000418170342007, guid: 5997a7fc799ed5343995b2c5d6706d11, type: 3}
-  Chance: 100
+  Spawned: []
+  Chance: 78.5
 --- !u!1 &1788313520
 GameObject:
   m_ObjectHideFlags: 0

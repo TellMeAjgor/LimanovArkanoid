@@ -9,6 +9,7 @@ TagManager:
   - SilverBlock
   - Platform
   - DeathWall
+  - Collectable
   layers:
   - Default
   - TransparentFX
