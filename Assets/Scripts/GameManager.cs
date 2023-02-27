@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
 
         Level++;
         lives = tmpLives;
+        Score = 0;
         TextManager.Instance.updateLivesText();
         SceneManager.LoadScene("Level" + Level.ToString(), LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync("Level" + (Level - 1).ToString());

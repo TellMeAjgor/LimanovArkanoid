@@ -37,6 +37,8 @@ public class Block : MonoBehaviour
             {
                 GameManager.Instance.Score += this.Points;
             }
+
+            TextManager.Instance.updatescoreText();
             
             Destroy(this.gameObject);
 

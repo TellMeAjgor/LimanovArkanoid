@@ -28,10 +28,14 @@ public class TextManager : MonoBehaviour
     public GameObject livesText;
     TextMeshProUGUI tmp_livesText;
 
+    public GameObject scoreText;
+    TextMeshProUGUI tmp_scoreText;
+
     // Start is called before the first frame update
     void Start()
     {
         tmp_livesText = livesText.GetComponent<TextMeshProUGUI>();
+        tmp_scoreText = scoreText.GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -43,5 +47,10 @@ public class TextManager : MonoBehaviour
     public void updateLivesText()
     {
         this.tmp_livesText.text = "Lives: " + GameManager.Instance.lives;
+    }
+
+    public void updatescoreText()
+    {
+        this.tmp_scoreText.text = "Score: " + GameManager.Instance.Score;
     }
 }
