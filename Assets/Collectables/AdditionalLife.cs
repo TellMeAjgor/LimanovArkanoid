@@ -7,7 +7,10 @@ public class AdditionalLife : Collectable
 {
     protected override void ApplyEffect()
     {
-        GameManager.Instance.lives++;
+        if (GameManager.Instance.lives < 5)
+        {
+            GameManager.Instance.lives++;
+        }
         TextManager.Instance.updateLivesText();
     }
 }
