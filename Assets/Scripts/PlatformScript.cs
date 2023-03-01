@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 //using System.Numerics;
 using UnityEngine;
 
@@ -25,6 +26,10 @@ public class PlatformScript : MonoBehaviour
 
     #endregion
 
+    public bool catchIsAvailable = false;
+    public GameObject catchedBall;
+    public bool ballCatched = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,18 +51,32 @@ public class PlatformScript : MonoBehaviour
     {
         if(collision.gameObject.tag == "Ball")
         {
-            Rigidbody2D ballRB = collision.gameObject.GetComponent<Rigidbody2D>();
-            Vector3 hitPoint = collision.contacts[0].point;
-            Vector3 platformCenter = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
+            if (catchIsAvailable)
+            {
+                if(!ballCatched)
+                {
+                    catchedBall = collision.gameObject;
+                    Rigidbody2D catchedBallRb = catchedBall.GetComponent<Rigidbody2D>();
+                    catchedBallRb.velocity = Vector3.zero;
+                    ballCatched = true;
+                    catchIsAvailable = false;
+                }           
+            }
+            else
+            {
+                Rigidbody2D ballRB = collision.gameObject.GetComponent<Rigidbody2D>();
+                Vector3 hitPoint = collision.contacts[0].point;
+                Vector3 platformCenter = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
 
-            float difference = hitPoint.x - platformCenter.x;
+                float difference = hitPoint.x - platformCenter.x;
 
-            ballRB.AddForce(new Vector2(difference * 200, 0));
+                ballRB.AddForce(new Vector2(difference * 200, 0));
 
-            ballRB.velocity = new Vector2(Mathf.Clamp(ballRB.velocity.x, -5, 5), ballRB.velocity.x);
-            ballRB.velocity = new Vector2(ballRB.velocity.x, Mathf.Sqrt(60 - Mathf.Pow(ballRB.velocity.x, 2)));
+                ballRB.velocity = new Vector2(Mathf.Clamp(ballRB.velocity.x, -5, 5), ballRB.velocity.x);
+                ballRB.velocity = new Vector2(ballRB.velocity.x, Mathf.Sqrt(60 - Mathf.Pow(ballRB.velocity.x, 2)));
 
-            print(CollectableManager.Instance.Spawned.Count);
+                print(CollectableManager.Instance.Spawned.Count);
+            }           
         }
     }
 }

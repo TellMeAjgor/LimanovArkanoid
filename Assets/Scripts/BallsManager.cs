@@ -26,7 +26,7 @@ public class BallsManager : MonoBehaviour
     #endregion
 
     [SerializeField]
-    private Ball ballPrefab;
+    public Ball ballPrefab;
      
     private Ball initialBall;
 
@@ -50,8 +50,29 @@ public class BallsManager : MonoBehaviour
         {
             Vector3 platformPosition = PlatformScript.Instance.gameObject.transform.position;
             Vector3 ballPosition = new Vector3(platformPosition.x, platformPosition.y+0.45f, 0);
+
             initialBall.transform.position = ballPosition;
+                  
         } 
+
+        if(PlatformScript.Instance.ballCatched)
+        {               
+            try
+            {
+                Vector3 platformPosition = PlatformScript.Instance.gameObject.transform.position;
+                Vector3 ballPosition = new Vector3(platformPosition.x, platformPosition.y + 0.45f, 0);
+                PlatformScript.Instance.catchedBall.transform.position = ballPosition;
+
+                if (Input.GetMouseButtonDown(0) && PlatformScript.Instance.ballCatched)
+                {
+                    Rigidbody2D catchedBallRb = PlatformScript.Instance.catchedBall.GetComponent<Rigidbody2D>();
+                    catchedBallRb.isKinematic = false;
+                    catchedBallRb.AddForce(new Vector2(2, BallsManager.Instance.initialBallSpeed));
+                    PlatformScript.Instance.ballCatched = false;               
+                }
+            }
+            catch {}
+        }
         
         if(Input.GetMouseButtonDown(0) && !GameManager.Instance.isGameStarted)
         {

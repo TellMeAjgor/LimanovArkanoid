@@ -333,7 +333,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lives: 3'
+  m_text: 'LiveS: 3'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 98ecfa094a275fe4683a2b310e6138d7, type: 2}
   m_sharedMaterial: {fileID: 3822212036078606626, guid: 98ecfa094a275fe4683a2b310e6138d7, type: 2}
@@ -585,9 +585,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Available:
+  - {fileID: 4040597226822004721, guid: a8ea0f466fc0432499f47c5e20cb6e81, type: 3}
   - {fileID: 8694000418170342007, guid: 5997a7fc799ed5343995b2c5d6706d11, type: 3}
-  - {fileID: 9156011772379240284, guid: d56529291ee12440b89251dc06f007fb, type: 3}
-  - {fileID: -9206319753120060726, guid: c7aca1d411dfc406ca771fd32de3e337, type: 3}
   Spawned: []
   Chance: 100
 --- !u!1 &1630747351
