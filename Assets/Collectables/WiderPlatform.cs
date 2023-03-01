@@ -21,12 +21,14 @@ public class WiderPlatform : Collectable
         {
             restoreValues();
         }
+        CollectableManager.Instance.Active.Remove(this);
     }
 
     public void restoreValues()
     {
         GameObject platform = GameObject.FindGameObjectWithTag("Platform");
         platform.transform.localScale = new Vector3(1, 1, 1);
+        WiderPlatformTimer.lastCollected = null;
     }
 
     public override void removeEffect()

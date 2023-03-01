@@ -56,8 +56,6 @@ public class PlatformScript : MonoBehaviour
 
             ballRB.velocity = new Vector2(Mathf.Clamp(ballRB.velocity.x, -5, 5), ballRB.velocity.x);
             ballRB.velocity = new Vector2(ballRB.velocity.x, Mathf.Sqrt(60 - Mathf.Pow(ballRB.velocity.x, 2)));
-
-            print(CollectableManager.Instance.Spawned.Count);
         }
     }
 }

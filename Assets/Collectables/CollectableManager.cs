@@ -26,12 +26,18 @@ public class CollectableManager : MonoBehaviour
 
     public List<Collectable> Available;
     public List<Collectable> Spawned;
+    public List<Collectable> Active;
 
     [Range(0, 100)]
     public float Chance;
 
     public void ResetCollectables()
     {
+        foreach (var collectable in this.Active.ToList())
+        {
+            collectable.removeEffect();
+        }
+
         foreach (var collectable in this.Spawned.ToList())
         {
             collectable.removeEffect();
