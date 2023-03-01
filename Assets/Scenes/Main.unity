@@ -587,8 +587,9 @@ MonoBehaviour:
   Available:
   - {fileID: 8694000418170342007, guid: 5997a7fc799ed5343995b2c5d6706d11, type: 3}
   - {fileID: 9156011772379240284, guid: d56529291ee12440b89251dc06f007fb, type: 3}
+  - {fileID: -9206319753120060726, guid: c7aca1d411dfc406ca771fd32de3e337, type: 3}
   Spawned: []
-  Chance: 78.5
+  Chance: 100
 --- !u!1 &1630747351
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,6 +913,14 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2710870983558096132, guid: 94a630d89f5bfea4ea18d015eaa8fc66, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2710870983558096132, guid: 94a630d89f5bfea4ea18d015eaa8fc66, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2710870983558096132, guid: 94a630d89f5bfea4ea18d015eaa8fc66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -949,6 +958,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2710870983558096132, guid: 94a630d89f5bfea4ea18d015eaa8fc66, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2710870983558096132, guid: 94a630d89f5bfea4ea18d015eaa8fc66, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2710870983558096134, guid: 94a630d89f5bfea4ea18d015eaa8fc66, type: 3}
