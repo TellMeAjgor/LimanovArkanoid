@@ -5,9 +5,17 @@ using UnityEngine;
 
 public class AdditionalLife : Collectable
 {
+    public override void removeEffect()
+    {
+        
+    }
+
     protected override void ApplyEffect()
     {
-        GameManager.Instance.lives++;
+        if (GameManager.Instance.lives < 5)
+        {
+            GameManager.Instance.lives++;
+        }
         TextManager.Instance.updateLivesText();
     }
 }

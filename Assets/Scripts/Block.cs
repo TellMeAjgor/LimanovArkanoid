@@ -86,7 +86,7 @@ public class Block : MonoBehaviour
 
         collection = CollectableManager.Instance.Available;
 
-        int index= UnityEngine.Random.Range(0, collection.Count);
+        int index = UnityEngine.Random.Range(0, collection.Count);
         Collectable prefab = collection[index];
         Collectable newCollectable = Instantiate(prefab, this.transform.position, Quaternion.identity) as Collectable;
 
