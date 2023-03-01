@@ -2,6 +2,11 @@
 
 public class MultiBall : Collectable
 {
+    public override void removeEffect()
+    {
+
+    }
+
     protected override void ApplyEffect()
     {
 

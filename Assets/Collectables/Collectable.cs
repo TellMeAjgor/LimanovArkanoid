@@ -24,4 +24,5 @@ public abstract class Collectable : MonoBehaviour
     }
 
     protected abstract void ApplyEffect();
+    public abstract void removeEffect();
 }

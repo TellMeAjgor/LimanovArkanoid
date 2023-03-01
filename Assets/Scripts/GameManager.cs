@@ -72,13 +72,20 @@ public class GameManager : MonoBehaviour
         ResetBallPosition();
         CollectableManager.Instance.ResetCollectables();
 
+        resetValues();
+
+        SceneManager.LoadScene("Level" + Level.ToString(), LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync("Level" + (Level - 1).ToString());
+    }
+
+    // Resetting values when changing level
+    public void resetValues()
+    {
         Level++;
         lives = tmpLives;
         Score = 0;
         TextManager.Instance.updateLivesText();
         TextManager.Instance.updatescoreText();
-        SceneManager.LoadScene("Level" + Level.ToString(), LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync("Level" + (Level - 1).ToString());
     }
 
     private void OnDisable()

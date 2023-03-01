@@ -34,6 +34,7 @@ public class CollectableManager : MonoBehaviour
     {
         foreach (var collectable in this.Spawned.ToList())
         {
+            collectable.removeEffect();
             Destroy(collectable.gameObject);
         }
 

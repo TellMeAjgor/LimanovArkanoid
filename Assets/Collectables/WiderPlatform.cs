@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 public class WiderPlatform : Collectable
 {
-    // duration in millisecondc
+    // duration in milliseconds
     public int duration;
 
     protected async override void ApplyEffect()
@@ -19,8 +19,19 @@ public class WiderPlatform : Collectable
 
         if (WiderPlatformTimer.lastCollected == this)
         {
-            platform.transform.localScale = new Vector3(1, 1, 1);
+            restoreValues();
         }
+    }
+
+    public void restoreValues()
+    {
+        GameObject platform = GameObject.FindGameObjectWithTag("Platform");
+        platform.transform.localScale = new Vector3(1, 1, 1);
+    }
+
+    public override void removeEffect()
+    {
+        restoreValues();
     }
 }
 

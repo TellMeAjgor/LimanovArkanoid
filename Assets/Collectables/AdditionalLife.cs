@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class AdditionalLife : Collectable
 {
+    public override void removeEffect()
+    {
+        
+    }
+
     protected override void ApplyEffect()
     {
         if (GameManager.Instance.lives < 5)
