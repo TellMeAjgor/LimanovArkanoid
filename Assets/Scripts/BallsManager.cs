@@ -100,7 +100,7 @@ public class BallsManager : MonoBehaviour
 
             Rigidbody2D spawnedBallRb = spawnedBall.GetComponent<Rigidbody2D>();
             spawnedBallRb.isKinematic = false;
-            spawnedBallRb.AddForce(new Vector2(0, initialBallSpeed));
+            spawnedBallRb.AddForce(new Vector2(0, initialBallSpeed * PlatformScript.Instance.speedMultiplier));
             this.Balls.Add(spawnedBall);
         }
     }

@@ -84,6 +84,7 @@ public class GameManager : MonoBehaviour
         Level++;
         lives = tmpLives;
         Score = 0;
+        PlatformScript.Instance.speedMultiplier = 1;
         TextManager.Instance.updateLivesText();
         TextManager.Instance.updatescoreText();
     }
