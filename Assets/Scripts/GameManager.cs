@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour
     {
         this.lives = this.tmpLives;
         Ball.OnBallDeath += OnBallDeath;
-        TextManager.Instance.updateLivesText();
     }
 
     private void OnBallDeath(Ball obj)
