@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
         this.lives = this.tmpLives;
         Ball.OnBallDeath += OnBallDeath;
         Physics2D.IgnoreLayerCollision(6, 7);
+        Laser.projectiles.Clear();
     }
 
     private void OnBallDeath(Ball obj)

@@ -26,6 +26,8 @@ public class PlatformScript : MonoBehaviour
 
     #endregion
 
+    public float speedMultiplier = 1;
+
     //Catch
     public bool catchIsAvailable = false;
     public GameObject catchedBall;
@@ -57,13 +59,6 @@ public class PlatformScript : MonoBehaviour
         transform.position = new UnityEngine.Vector2(Mathf.Clamp(mousePosition.x, minScreenBounds.x + 1, maxScreenBounds.x - 1), transform.position.y);     
     }
 
-    private void UpdateMuzzlePosition()
-    {
-        var sr = GetComponent<SpriteRenderer>();
-        leftParticles.transform.position = new Vector3(this.transform.position.x - (sr.size.x / 2) + 0.1f, this.transform.position.y, this.transform.position.z);
-        rightParticles.transform.position = new Vector3(this.transform.position.x - (sr.size.x / 2) - 0.1f, this.transform.position.y, this.transform.position.z);
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Ball")
@@ -92,10 +87,7 @@ public class PlatformScript : MonoBehaviour
                 ballRB.velocity = new Vector2(Mathf.Clamp(ballRB.velocity.x, -5, 5), ballRB.velocity.x);
                 ballRB.velocity = new Vector2(ballRB.velocity.x, Mathf.Sqrt(60 - Mathf.Pow(ballRB.velocity.x, 2)));
                 ballRB.velocity *= new Vector2(speedMultiplier, speedMultiplier);
-
             }           
-
-
         }
     }
 
