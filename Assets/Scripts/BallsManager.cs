@@ -57,8 +57,6 @@ public class BallsManager : MonoBehaviour
 
         if(PlatformScript.Instance.ballCatched)
         {               
-            try
-            {
                 Vector3 platformPosition = PlatformScript.Instance.gameObject.transform.position;
                 Vector3 ballPosition = new Vector3(platformPosition.x, platformPosition.y + 0.45f, 0);
                 PlatformScript.Instance.catchedBall.transform.position = ballPosition;
@@ -70,8 +68,6 @@ public class BallsManager : MonoBehaviour
                     catchedBallRb.AddForce(new Vector2(2, BallsManager.Instance.initialBallSpeed));
                     PlatformScript.Instance.ballCatched = false;               
                 }
-            }
-            catch {}
         }
         
         if(Input.GetMouseButtonDown(0) && !GameManager.Instance.isGameStarted)
@@ -96,7 +92,7 @@ public class BallsManager : MonoBehaviour
     private void InitBall()
     {
         Vector3 platformPosition = PlatformScript.Instance.gameObject.transform.position;
-        Vector3 startingPosition = new Vector3(platformPosition.x, platformPosition.y+0.45f, 0);
+        Vector3 startingPosition = new Vector3(platformPosition.x, platformPosition.y+10f, 0);
         initialBall = Instantiate(ballPrefab, startingPosition,Quaternion.identity);
         initialBallRb = initialBall.GetComponent<Rigidbody2D>();
 

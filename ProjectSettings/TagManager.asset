@@ -11,6 +11,7 @@ TagManager:
   - DeathWall
   - Collectable
   - LivesText
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Ball
+  - Bullet
   - 
   - 
   - 

@@ -37,9 +37,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+
         this.lives = this.tmpLives;
         Ball.OnBallDeath += OnBallDeath;
-        TextManager.Instance.updateLivesText();
+        Physics2D.IgnoreLayerCollision(6, 7);
     }
 
     private void OnBallDeath(Ball obj)
