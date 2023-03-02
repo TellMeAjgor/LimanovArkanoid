@@ -47,6 +47,10 @@ public class GameManager : MonoBehaviour
         {
             this.lives--;
             TextManager.Instance.updateLivesText();
+            foreach (var collectable in CollectableManager.Instance.Active)
+            {
+                collectable.removeEffect();
+            }
 
             if (this.lives < 1)
             {
