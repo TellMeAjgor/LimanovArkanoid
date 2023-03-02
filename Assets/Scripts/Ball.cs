@@ -8,6 +8,8 @@ public class Ball : MonoBehaviour
     public static event Action<Ball> OnBallDeath;
     public static int damage = 1;
 
+    public Vector2 Velocity;
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == this.tag)
@@ -15,6 +17,7 @@ public class Ball : MonoBehaviour
             Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());               
         }
     }
+
     public void Die()
     {
         OnBallDeath?.Invoke(this);

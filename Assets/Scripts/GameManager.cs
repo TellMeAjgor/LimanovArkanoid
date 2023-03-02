@@ -26,15 +26,18 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-
-
     public bool isGameStarted { get; set; }
     public int Score { get; set; }
 
     public int lives { get; set; }
     public int tmpLives = 3;
 
-    public int Level = 1;
+    public int Level;
+
+    public void GetLevel(int _level)
+    {
+        Level = _level;
+    }
 
     private void Start()
     {
@@ -103,4 +106,5 @@ public class GameManager : MonoBehaviour
         Ball.OnBallDeath -= OnBallDeath;
     }
 
+    
 }
