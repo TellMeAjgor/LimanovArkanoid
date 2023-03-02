@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour
     {
         this.lives = this.tmpLives;
         Ball.OnBallDeath += OnBallDeath;
-        TextManager.Instance.updateLivesText();
     }
 
     private void OnBallDeath(Ball obj)
@@ -84,6 +83,7 @@ public class GameManager : MonoBehaviour
         Level++;
         lives = tmpLives;
         Score = 0;
+        PlatformScript.Instance.speedMultiplier = 1;
         TextManager.Instance.updateLivesText();
         TextManager.Instance.updatescoreText();
     }

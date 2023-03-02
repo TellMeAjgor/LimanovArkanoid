@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8694000418170342006}
   - component: {fileID: 8694000418170342001}
-  - component: {fileID: 8694000418170342000}
   - component: {fileID: -9206319753120060726}
+  - component: {fileID: 8694000418170342000}
   m_Layer: 0
   m_Name: WiderPlatform
   m_TagString: Untagged
@@ -56,6 +56,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-9206319753120060726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8694000418170342003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b33269fd241244378bbd58f8889c61e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 6000
 --- !u!58 &8694000418170342000
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -72,19 +85,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
---- !u!114 &-9206319753120060726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8694000418170342003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b33269fd241244378bbd58f8889c61e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 6000
 --- !u!1 &8694000418677733022
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,7 +158,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f2e54bcd455be1545a586f50520ef589, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e342ce865e4f74337911eaf3d816b85a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

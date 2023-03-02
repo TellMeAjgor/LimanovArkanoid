@@ -9,7 +9,11 @@ public abstract class Collectable : MonoBehaviour
     {
         
         if(collision.tag=="Platform")
-        {         
+        {
+            if(this is StrongerBall || this is WiderPlatform | this is SlowSpeed)
+            {
+                CollectableManager.Instance.Active.Add(this);
+            }
             this.ApplyEffect();
         }
 
