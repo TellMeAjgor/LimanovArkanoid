@@ -22,7 +22,7 @@ public class Block : MonoBehaviour
 
     private void ApplyCollisionLogic()
     {
-        this.HitPoints--;
+        this.HitPoints -= Ball.damage;
 
         if (this.HitPoints <= 0)
         {

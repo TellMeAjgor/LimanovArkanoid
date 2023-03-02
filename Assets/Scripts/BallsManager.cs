@@ -104,16 +104,31 @@ public class BallsManager : MonoBehaviour
 
     public void SpawnBalls(Vector3 position, int count)
     {
+        bool biggerBalls = isBiggerBallsActivated();
+
         for (int i = 0; i < count; i++)
         {
             Ball spawnedBall = Instantiate(ballPrefab, position, Quaternion.identity) as Ball;
 
+            if (biggerBalls)
+            {
+                spawnedBall.transform.localScale = new Vector3(1.3f, 1.3f, 1);
+            }
+
             Rigidbody2D spawnedBallRb = spawnedBall.GetComponent<Rigidbody2D>();
             spawnedBallRb.isKinematic = false;
-            spawnedBallRb.AddForce(new Vector2(0, initialBallSpeed));
+            spawnedBallRb.AddForce(new Vector2(0, initialBallSpeed * PlatformScript.Instance.speedMultiplier));
             this.Balls.Add(spawnedBall);
         }
     }
 
+    private bool isBiggerBallsActivated()
+    {
+        foreach (Collectable powerup in CollectableManager.Instance.Active)
+        {
+            if (powerup is StrongerBall) return true;
+        }
+        return false;
+    }
 }
 

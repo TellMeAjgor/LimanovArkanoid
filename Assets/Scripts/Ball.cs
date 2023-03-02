@@ -6,6 +6,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public static event Action<Ball> OnBallDeath;
+    public static int damage = 1;
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
