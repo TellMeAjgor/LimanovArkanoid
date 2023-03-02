@@ -41,9 +41,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+
         this.lives = this.tmpLives;
         Ball.OnBallDeath += OnBallDeath;
-        TextManager.Instance.updateLivesText();
+        Physics2D.IgnoreLayerCollision(6, 7);
+        Laser.projectiles.Clear();
     }
 
     private void OnBallDeath(Ball obj)
@@ -52,6 +54,10 @@ public class GameManager : MonoBehaviour
         {
             this.lives--;
             TextManager.Instance.updateLivesText();
+            foreach (var collectable in CollectableManager.Instance.Active)
+            {
+                collectable.removeEffect();
+            }
 
             if (this.lives < 1)
             {

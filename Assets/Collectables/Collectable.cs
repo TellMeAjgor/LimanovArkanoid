@@ -10,7 +10,7 @@ public abstract class Collectable : MonoBehaviour
         
         if(collision.tag=="Platform")
         {
-            if(this is StrongerBall || this is WiderPlatform | this is SlowSpeed)
+            if(this is StrongerBall || this is WiderPlatform || this is SlowSpeed || this is Laser)
             {
                 CollectableManager.Instance.Active.Add(this);
             }

@@ -17,10 +17,10 @@ public class Block : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Ball ball = collision.gameObject.GetComponent<Ball>();
-        ApplyCollisionLogic(ball);
+        ApplyCollisionLogic();
     }
 
-    private void ApplyCollisionLogic(Ball ball)
+    private void ApplyCollisionLogic()
     {
         this.HitPoints -= Ball.damage;
 
@@ -39,6 +39,7 @@ public class Block : MonoBehaviour
             }
 
             TextManager.Instance.updatescoreText();
+
             
             Destroy(this.gameObject);
 
@@ -71,30 +72,32 @@ public class Block : MonoBehaviour
 
     public void OnBrickDestroy()
     {
+        
         float spawnChance = UnityEngine.Random.Range(0, 100f);
 
 
         if(spawnChance<CollectableManager.Instance.Chance)
         {
-            Collectable buff = this.SpawnCollectable();
+            SpawnCollectable();
         }
     }
 
     private Collectable SpawnCollectable()
     {
+        
         List<Collectable> collection;
 
         collection = CollectableManager.Instance.Available;
 
         int index = UnityEngine.Random.Range(0, collection.Count);
         Collectable prefab = collection[index];
-        Collectable newCollectable = Instantiate(prefab, this.transform.position, Quaternion.identity) as Collectable;
-
+        Collectable newCollectable = Instantiate(prefab, this.transform.position, Quaternion.identity) as Collectable;      
         Rigidbody2D newCollectableRb = newCollectable.GetComponent<Rigidbody2D>();
         newCollectableRb.AddForce(new Vector2(0, -100));
         CollectableManager.Instance.Spawned.Add(newCollectable);
 
         return newCollectable;
+        
     }
 
 
