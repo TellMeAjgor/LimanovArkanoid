@@ -31,15 +31,11 @@ public class TextManager : MonoBehaviour
     public GameObject scoreText;
     TextMeshProUGUI tmp_scoreText;
 
-    public GameObject levelText;
-    TextMeshProUGUI tmp_levelText;
-
     // Start is called before the first frame update
     void Start()
     {
         tmp_livesText = livesText.GetComponent<TextMeshProUGUI>();
         tmp_scoreText = scoreText.GetComponent<TextMeshProUGUI>();
-        tmp_levelText = levelText.GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -56,10 +52,5 @@ public class TextManager : MonoBehaviour
     public void updatescoreText()
     {
         this.tmp_scoreText.text = "Score: " + GameManager.Instance.Score;
-    }
-
-    public void updateLevelText() 
-    {
-        this.tmp_levelText.text = "Level: " + GameManager.Instance.Level;
     }
 }
