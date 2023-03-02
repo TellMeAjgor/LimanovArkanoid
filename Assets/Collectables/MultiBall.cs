@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 public class MultiBall : Collectable
 {
@@ -9,8 +10,8 @@ public class MultiBall : Collectable
 
     protected override void ApplyEffect()
     {
-
-        foreach (Ball ball in BallsManager.Instance.Balls.ToList())
+        List<Ball> balls = BallsManager.Instance.Balls.ToList();
+        foreach (Ball ball in balls)
         {
             BallsManager.Instance.SpawnBalls(ball.gameObject.transform.position, 2);
         }
