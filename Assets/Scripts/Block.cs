@@ -9,7 +9,6 @@ public class Block : MonoBehaviour
     public int HitPoints = 1;
     public int Points = 1;
 
-
     public ParticleSystem DestroyEffect;
 
     public static event Action<Block> OnBrickDestruction;
