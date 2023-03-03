@@ -32,16 +32,8 @@ public class GameManager : MonoBehaviour
     public int lives { get; set; }
     public int tmpLives = 3;
 
-    public int Level;
-
-    public void GetLevel(int _level)
-    {
-        Level = _level;
-    }
-
     private void Start()
     {
-
         this.lives = this.tmpLives;
         Ball.OnBallDeath += OnBallDeath;
         Physics2D.IgnoreLayerCollision(6, 7);
@@ -83,24 +75,28 @@ public class GameManager : MonoBehaviour
     {
         ResetBallPosition();
         CollectableManager.Instance.ResetCollectables();
-
-        resetValues();
-
-        try {
-            SceneManager.LoadScene("Level" + Level.ToString(), LoadSceneMode.Additive);
-            SceneManager.UnloadSceneAsync("Level" + (Level - 1).ToString());
-        }
-        catch
+        
+        if (GetLevel() >= 37)
         {
             SceneManager.LoadSceneAsync("WinScreen");
         }
-        
+        else
+        {
+            //SceneManager.LoadSceneAsync(GetLevel()+1);
+            PlayerPrefs.SetInt("Level", GetLevel());
+            PlayerPrefs.SetInt("Score", Score);
+            SceneManager.LoadScene(38);
+        }
+    }
+
+    public void LoadLevel()
+    {
+        SceneManager.LoadSceneAsync(PlayerPrefs.GetInt("Level")+1);
     }
 
     // Resetting values when changing level
     public void resetValues()
     {
-        Level++;
         lives = tmpLives;
         Score = 0;
         PlatformScript.Instance.speedMultiplier = 1;
@@ -113,5 +109,9 @@ public class GameManager : MonoBehaviour
         Ball.OnBallDeath -= OnBallDeath;
     }
 
+    public int GetLevel()
+    {
+        return SceneManager.GetActiveScene().buildIndex;
+    }
     
 }

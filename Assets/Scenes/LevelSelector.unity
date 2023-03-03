@@ -502,7 +502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3171313354860876487, guid: ee98b87e949d48b4d9cc6d9b28d3848d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3171313354860876487, guid: ee98b87e949d48b4d9cc6d9b28d3848d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -541,12 +541,16 @@ PrefabInstance:
       value: GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3171313354860876487, guid: ee98b87e949d48b4d9cc6d9b28d3848d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171313354860876487, guid: ee98b87e949d48b4d9cc6d9b28d3848d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3171313354860876487, guid: ee98b87e949d48b4d9cc6d9b28d3848d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Level1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3171313354860876487, guid: ee98b87e949d48b4d9cc6d9b28d3848d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
@@ -876,7 +880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3171313354860876487, guid: ee98b87e949d48b4d9cc6d9b28d3848d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3171313354860876487, guid: ee98b87e949d48b4d9cc6d9b28d3848d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -915,12 +919,16 @@ PrefabInstance:
       value: GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3171313354860876487, guid: ee98b87e949d48b4d9cc6d9b28d3848d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171313354860876487, guid: ee98b87e949d48b4d9cc6d9b28d3848d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3171313354860876487, guid: ee98b87e949d48b4d9cc6d9b28d3848d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Level2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3171313354860876487, guid: ee98b87e949d48b4d9cc6d9b28d3848d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
@@ -1125,7 +1133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3171313354860876487, guid: ee98b87e949d48b4d9cc6d9b28d3848d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3171313354860876487, guid: ee98b87e949d48b4d9cc6d9b28d3848d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -1164,12 +1172,16 @@ PrefabInstance:
       value: GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3171313354860876487, guid: ee98b87e949d48b4d9cc6d9b28d3848d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171313354860876487, guid: ee98b87e949d48b4d9cc6d9b28d3848d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3171313354860876487, guid: ee98b87e949d48b4d9cc6d9b28d3848d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Level3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3171313354860876487, guid: ee98b87e949d48b4d9cc6d9b28d3848d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument

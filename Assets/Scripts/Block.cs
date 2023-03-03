@@ -30,7 +30,7 @@ public class Block : MonoBehaviour
             SpawnDestroyEffect();
             if (this.tag == "SilverBlock")
             {
-                GameManager.Instance.Score += this.Points*GameManager.Instance.Level;
+                GameManager.Instance.Score += this.Points*GameManager.Instance.GetLevel()-4;
             }
             else
             {
