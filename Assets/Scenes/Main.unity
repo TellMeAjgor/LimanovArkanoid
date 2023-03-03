@@ -596,7 +596,7 @@ MonoBehaviour:
   - {fileID: 2129550736088157265, guid: 96784c2ba40444104b7689f65724e5cc, type: 3}
   Spawned: []
   Active: []
-  Chance: 100
+  Chance: 50
 --- !u!1 &1630747351
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,7 +1034,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7020035457096888876, guid: a116704c2313a484bb0e5462e973c5e5, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.0375
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7020035457096888876, guid: a116704c2313a484bb0e5462e973c5e5, type: 3}
       propertyPath: m_LocalPosition.x
