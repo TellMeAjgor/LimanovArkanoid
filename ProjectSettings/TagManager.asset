@@ -12,6 +12,7 @@ TagManager:
   - Collectable
   - LivesText
   - Bullet
+  - Portal
   layers:
   - Default
   - TransparentFX

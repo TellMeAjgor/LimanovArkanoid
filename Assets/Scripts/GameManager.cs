@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using static System.Net.Mime.MediaTypeNames;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,15 +26,18 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-
-
     public bool isGameStarted { get; set; }
     public int Score { get; set; }
 
     public int lives { get; set; }
     public int tmpLives = 3;
 
-    public int Level = 1;
+    public int Level;
+
+    public void GetLevel(int _level)
+    {
+        Level = _level;
+    }
 
     private void Start()
     {
@@ -59,6 +63,7 @@ public class GameManager : MonoBehaviour
             if (this.lives < 1)
             {
                 //Wczytaj ekran przegranej
+                SceneManager.LoadSceneAsync("LoseScreen");
             }
             else
             {
@@ -81,8 +86,15 @@ public class GameManager : MonoBehaviour
 
         resetValues();
 
-        SceneManager.LoadScene("Level" + Level.ToString(), LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync("Level" + (Level - 1).ToString());
+        try {
+            SceneManager.LoadScene("Level" + Level.ToString(), LoadSceneMode.Additive);
+            SceneManager.UnloadSceneAsync("Level" + (Level - 1).ToString());
+        }
+        catch
+        {
+            SceneManager.LoadSceneAsync("WinScreen");
+        }
+        
     }
 
     // Resetting values when changing level
@@ -101,4 +113,5 @@ public class GameManager : MonoBehaviour
         Ball.OnBallDeath -= OnBallDeath;
     }
 
+    
 }
