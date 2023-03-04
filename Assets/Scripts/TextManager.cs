@@ -44,11 +44,6 @@ public class TextManager : MonoBehaviour
         
     }
 
-    public void updateLivesText()
-    {
-        this.tmp_livesText.text = "LiveS: " + GameManager.Instance.lives;
-    }
-
     public void updatescoreText()
     {
         this.tmp_scoreText.text = "Score: " + GameManager.Instance.Score;

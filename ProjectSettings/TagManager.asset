@@ -13,6 +13,7 @@ TagManager:
   - LivesText
   - Bullet
   - Portal
+  - heart
   layers:
   - Default
   - TransparentFX
