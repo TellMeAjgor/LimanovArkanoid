@@ -25,16 +25,12 @@ public class TextManager : MonoBehaviour
 
     #endregion
 
-    public GameObject livesText;
-    TextMeshProUGUI tmp_livesText;
-
     public GameObject scoreText;
     TextMeshProUGUI tmp_scoreText;
 
     // Start is called before the first frame update
     void Start()
     {
-        tmp_livesText = livesText.GetComponent<TextMeshProUGUI>();
         tmp_scoreText = scoreText.GetComponent<TextMeshProUGUI>();
     }
 
