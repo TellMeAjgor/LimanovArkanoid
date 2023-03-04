@@ -36,9 +36,7 @@ public class GameManager : MonoBehaviour
 
     public void GetLevel(int _level)
     {
-        print("_level1= " + _level+ " Level1="+Level);
         Level = _level;
-        print("_level2= " + _level + " Level2=" + Level);
     }
 
     private void Start()
@@ -87,25 +85,22 @@ public class GameManager : MonoBehaviour
         CollectableManager.Instance.ResetCollectables();
 
         resetValues();
-        Level++;      
-        /*try {*/
-        SceneManager.LoadScene("Level" + (Level+1).ToString(), LoadSceneMode.Additive);
 
-        print("Level before unload :"+Level);
-        SceneManager.UnloadSceneAsync("Level" + (Level).ToString());
-        print("Level before after :" + Level);
-        /*}*/
-        /* catch
-         {
-             SceneManager.LoadSceneAsync("WinScreen");
-         }*/
-
+        try {
+            SceneManager.LoadScene("Level" + Level.ToString(), LoadSceneMode.Additive);
+            SceneManager.UnloadSceneAsync("Level" + (Level - 1).ToString());
+        }
+        catch
+        {
+            SceneManager.LoadSceneAsync("WinScreen");
+        }
+        
     }
 
     // Resetting values when changing level
     public void resetValues()
     {
-        /*Level++;*/
+        Level++;
         lives = tmpLives;
         Score = 0;
         PlatformScript.Instance.speedMultiplier = 1;
