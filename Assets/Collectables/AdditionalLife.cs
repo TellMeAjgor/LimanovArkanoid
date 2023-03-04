@@ -14,8 +14,7 @@ public class AdditionalLife : Collectable
     {
         if (GameManager.Instance.lives < 5)
         {
-            GameManager.Instance.lives++;
+            GameManager.Instance.changeLives(GameManager.Instance.lives + 1);
         }
-        TextManager.Instance.updateLivesText();
     }
 }

@@ -19,7 +19,7 @@ public class NextLevelGate : Collectable
         NextLevelGateUsed.nlg_object = this;
 
         float pos_y = Random.Range(-2f, 3f);
-        createdPortal = Instantiate(portal, new Vector2(8.5f, pos_y), Quaternion.identity);
+        createdPortal = Instantiate(portal, new Vector2(9f, pos_y), Quaternion.identity);
     }
 
     public void restoreValues()

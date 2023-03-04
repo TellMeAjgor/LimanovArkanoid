@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8694000418170342000}
   m_Layer: 0
   m_Name: NextLevelGate
-  m_TagString: Untagged
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,6 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portal: {fileID: 7121329491443000035, guid: f6a00b77f17f448c091da93cdc1fef7d, type: 3}
+  createdPortal: {fileID: 0}
 --- !u!58 &8694000418170342000
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -157,8 +158,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e342ce865e4f74337911eaf3d816b85a, type: 3}
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 21300000, guid: 523a55cb157ae4be8ae29ba3516de8bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

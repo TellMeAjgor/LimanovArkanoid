@@ -32,31 +32,37 @@ public class GameManager : MonoBehaviour
     public int lives { get; set; }
     public int tmpLives = 3;
 
-    public int Level;
-
-    public void GetLevel(int _level)
-    {
-        print("_level1= " + _level+ " Level1="+Level);
-        Level = _level;
-        print("_level2= " + _level + " Level2=" + Level);
-    }
+    private GameObject[] hearts;
+    private AudioSource _audioSource;
 
     private void Start()
     {
-
-        this.lives = this.tmpLives;
+        hearts = GameObject.FindGameObjectsWithTag("heart");
+        PlaceHearts();
+        _audioSource = GetComponent<AudioSource>();
+        changeLives(tmpLives);
         Ball.OnBallDeath += OnBallDeath;
         Physics2D.IgnoreLayerCollision(6, 7);
         Physics2D.IgnoreLayerCollision(6, 6);
         Laser.projectiles.Clear();
     }
 
+    private void PlaceHearts()
+    {
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            float pos_y = hearts[i].transform.localPosition.y;
+            float pos_x = -7 + i * 0.6f;
+            hearts[i].transform.localPosition = new Vector2(pos_x, pos_y);
+        }
+    }
+
     private void OnBallDeath(Ball obj)
     {
         if (BallsManager.Instance.Balls.Count <= 0)
         {
-            this.lives--;
-            TextManager.Instance.updateLivesText();
+            _audioSource.Play();
+            changeLives(lives - 1);
             foreach (var collectable in CollectableManager.Instance.Active)
             {
                 collectable.removeEffect();
@@ -85,31 +91,31 @@ public class GameManager : MonoBehaviour
     {
         ResetBallPosition();
         CollectableManager.Instance.ResetCollectables();
+        
+        if (GetLevel() >= 37)
+        {
+            SceneManager.LoadSceneAsync("WinScreen");
+        }
+        else
+        {
+            //SceneManager.LoadSceneAsync(GetLevel()+1);
+            PlayerPrefs.SetInt("Level", GetLevel());
+            PlayerPrefs.SetInt("Score", Score);
+            SceneManager.LoadScene(38);
+        }
+    }
 
-        resetValues();
-        Level++;      
-        /*try {*/
-        SceneManager.LoadScene("Level" + (Level+1).ToString(), LoadSceneMode.Additive);
-
-        print("Level before unload :"+Level);
-        SceneManager.UnloadSceneAsync("Level" + (Level).ToString());
-        print("Level before after :" + Level);
-        /*}*/
-        /* catch
-         {
-             SceneManager.LoadSceneAsync("WinScreen");
-         }*/
-
+    public void LoadLevel()
+    {
+        SceneManager.LoadSceneAsync(PlayerPrefs.GetInt("Level")+1);
     }
 
     // Resetting values when changing level
     public void resetValues()
     {
-        /*Level++;*/
-        lives = tmpLives;
         Score = 0;
         PlatformScript.Instance.speedMultiplier = 1;
-        TextManager.Instance.updateLivesText();
+        changeLives(tmpLives);
         TextManager.Instance.updatescoreText();
     }
 
@@ -118,5 +124,17 @@ public class GameManager : MonoBehaviour
         Ball.OnBallDeath -= OnBallDeath;
     }
 
-    
+    public int GetLevel()
+    {
+        return SceneManager.GetActiveScene().buildIndex;
+    }
+
+    public void changeLives(int new_val)
+    {
+        lives = new_val;
+        for (int i = 1; i <= hearts.Length; i++)
+        {
+            hearts[i-1].GetComponent<Renderer>().enabled = (i <= lives);
+        }
+    }
 }

@@ -10,6 +10,13 @@ public class Ball : MonoBehaviour
 
     public Vector2 Velocity;
 
+    private AudioSource _audioSource;
+
+    private void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == this.tag || collision.gameObject.tag == "Bullet")
@@ -20,12 +27,15 @@ public class Ball : MonoBehaviour
         {
             GameManager.Instance.LoadNextLevel();
         }
+        if (collision.gameObject.tag == "Block" || collision.gameObject.tag == "Platform")
+        {
+            _audioSource.Play();
+        }
     }
 
     public void Die()
     {
         OnBallDeath?.Invoke(this);
-        Destroy(gameObject,1);
-
+        Destroy(gameObject);
     }
 }

@@ -17,10 +17,9 @@ public class LevelSelector : MonoBehaviour
         
     }
 
-    public void Selector(string level)
+    public void Selector(int level)
     {
-        SceneManager.LoadSceneAsync("Main");
-        SceneManager.LoadSceneAsync(level, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(level);
     }
 
     public void Back()
