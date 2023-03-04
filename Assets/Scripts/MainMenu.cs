@@ -20,11 +20,21 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadSceneAsync("LevelSelector");
+        SceneManager.LoadSceneAsync(1);
     }
 
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void Help()
+    {
+        SceneManager.LoadSceneAsync(39);
+    }
+
+    public void Back()
+    {
+        SceneManager.LoadSceneAsync(0);
     }
 }   
