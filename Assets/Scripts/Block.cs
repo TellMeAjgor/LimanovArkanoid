@@ -9,6 +9,7 @@ public class Block : MonoBehaviour
     public int HitPoints = 1;
     public int Points = 1;
 
+
     public ParticleSystem DestroyEffect;
 
     public static event Action<Block> OnBrickDestruction;
@@ -29,7 +30,7 @@ public class Block : MonoBehaviour
             SpawnDestroyEffect();
             if (this.tag == "SilverBlock")
             {
-                GameManager.Instance.Score += this.Points*GameManager.Instance.GetLevel()-4;
+                GameManager.Instance.Score += this.Points*GameManager.Instance.Level;
             }
             else
             {

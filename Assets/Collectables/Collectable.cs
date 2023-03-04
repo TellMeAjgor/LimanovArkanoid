@@ -7,10 +7,10 @@ public abstract class Collectable : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if(collision.tag=="Platform")
         {
-            PlatformScript.Instance.PlayCollectableSound();
-            if (this is StrongerBall || this is WiderPlatform || this is SlowSpeed || this is Laser || this is NextLevelGate)
+            if(this is StrongerBall || this is WiderPlatform || this is SlowSpeed || this is Laser || this is NextLevelGate)
             {
                 CollectableManager.Instance.Active.Add(this);
             }

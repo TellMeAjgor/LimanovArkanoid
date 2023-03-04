@@ -40,14 +40,12 @@ public class PlatformScript : MonoBehaviour
     public GameObject rightParticles;
     private float shootingDuration = 5;
     public float shootingDurationLeft=0;
-    private AudioSource _audioSource;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        _audioSource = GetComponent<AudioSource>();
-        _audioSource.volume = 0.5f;
+
     }
 
     // Update is called once per frame
@@ -91,11 +89,6 @@ public class PlatformScript : MonoBehaviour
                 ballRB.velocity *= new Vector2(speedMultiplier, speedMultiplier);
             }           
         }
-    }
-
-    public void PlayCollectableSound()
-    {
-        _audioSource.Play();
     }
 
     public void StartShooting()

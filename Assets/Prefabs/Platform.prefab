@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d5d0dd793e5814bc68d80f2498de5b4e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f15186d540e524d69aac52d6cf3f3dae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,15 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee3631d9d421e45d89a149887b84ba2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: 1
-  catchIsAvailable: 0
-  catchedBall: {fileID: 0}
-  ballCatched: 0
-  platformIsShooting: 0
-  laserShootPrefab: {fileID: 0}
-  leftParticles: {fileID: 0}
-  rightParticles: {fileID: 0}
-  shootingDurationLeft: 0
 --- !u!50 &2710870983558096133
 Rigidbody2D:
   serializedVersion: 4
