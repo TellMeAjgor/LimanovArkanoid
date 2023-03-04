@@ -27,6 +27,7 @@ public class PlatformScript : MonoBehaviour
     #endregion
 
     public float speedMultiplier = 1;
+      
 
     //Catch
     public bool catchIsAvailable = false;
@@ -43,6 +44,7 @@ public class PlatformScript : MonoBehaviour
     private AudioSource _audioSource;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,9 +54,11 @@ public class PlatformScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {     
+    {
+        
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new UnityEngine.Vector2(Mathf.Clamp(mousePosition.x, -8.35f, 8.40f), transform.position.y);     
+        
+        transform.position = new UnityEngine.Vector2(Mathf.Clamp(mousePosition.x, -9.38f+((this.GetComponent<BoxCollider2D>().size.x*this.transform.localScale.x)/2), 9.40f-((this.GetComponent<BoxCollider2D>().size.x * this.transform.localScale.x) / 2)), transform.position.y);     
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
