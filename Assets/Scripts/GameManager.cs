@@ -94,6 +94,7 @@ public class GameManager : MonoBehaviour
         
         if (GetLevel() >= 37)
         {
+            PlayerPrefs.SetInt("Score", Score);
             SceneManager.LoadSceneAsync("WinScreen");
         }
         else
