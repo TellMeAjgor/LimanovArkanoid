@@ -32,22 +32,37 @@ public class GameManager : MonoBehaviour
     public int lives { get; set; }
     public int tmpLives = 3;
 
+    private GameObject[] hearts;
+    private AudioSource _audioSource;
+
     private void Start()
     {
-        this.lives = this.tmpLives;
+        hearts = GameObject.FindGameObjectsWithTag("heart");
+        PlaceHearts();
+        _audioSource = GetComponent<AudioSource>();
+        changeLives(tmpLives);
         Ball.OnBallDeath += OnBallDeath;
         Physics2D.IgnoreLayerCollision(6, 7);
         Physics2D.IgnoreLayerCollision(6, 6);
         Laser.projectiles.Clear();
     }
 
+    private void PlaceHearts()
+    {
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            float pos_y = hearts[i].transform.localPosition.y;
+            float pos_x = -7 + i * 0.6f;
+            hearts[i].transform.localPosition = new Vector2(pos_x, pos_y);
+        }
+    }
+
     private void OnBallDeath(Ball obj)
     {
         if (BallsManager.Instance.Balls.Count <= 0)
         {
-
-            this.lives--;
-            TextManager.Instance.updateLivesText();
+            _audioSource.Play();
+            changeLives(lives - 1);
             foreach (var collectable in CollectableManager.Instance.Active)
             {
                 collectable.removeEffect();
@@ -98,10 +113,9 @@ public class GameManager : MonoBehaviour
     // Resetting values when changing level
     public void resetValues()
     {
-        lives = tmpLives;
         Score = 0;
         PlatformScript.Instance.speedMultiplier = 1;
-        TextManager.Instance.updateLivesText();
+        changeLives(tmpLives);
         TextManager.Instance.updatescoreText();
     }
 
@@ -114,5 +128,13 @@ public class GameManager : MonoBehaviour
     {
         return SceneManager.GetActiveScene().buildIndex;
     }
-    
+
+    public void changeLives(int new_val)
+    {
+        lives = new_val;
+        for (int i = 1; i <= hearts.Length; i++)
+        {
+            hearts[i-1].GetComponent<Renderer>().enabled = (i <= lives);
+        }
+    }
 }
