@@ -28,7 +28,6 @@ public class Lose : MonoBehaviour
 
     public void TryAgain()
     {
-        SceneManager.LoadSceneAsync("Main");
-        SceneManager.LoadSceneAsync("Level1", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(PlayerPrefs.GetInt("Level"));
     }
 }

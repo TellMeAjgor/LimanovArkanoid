@@ -70,13 +70,13 @@ public class GameManager : MonoBehaviour
 
             if (this.lives < 1)
             {
-                //Wczytaj ekran przegranej
+                PlayerPrefs.SetInt("Level", GetLevel());
+                PlayerPrefs.SetInt("Score", Score);
                 SceneManager.LoadSceneAsync("LoseScreen");
             }
             else
             {
                 ResetBallPosition();
-                //Wczytaj ponownie poziom
             }
         }
     }
@@ -98,7 +98,6 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            //SceneManager.LoadSceneAsync(GetLevel()+1);
             PlayerPrefs.SetInt("Level", GetLevel());
             PlayerPrefs.SetInt("Score", Score);
             SceneManager.LoadScene(38);
