@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4040597226822004721}
   m_Layer: 0
   m_Name: CatchBall
-  m_TagString: Untagged
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e342ce865e4f74337911eaf3d816b85a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d5222d37398864b3db656ff42cd3f545, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
