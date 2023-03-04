@@ -3036,7 +3036,7 @@ MonoBehaviour:
   - {fileID: -9206319753120060726, guid: c7aca1d411dfc406ca771fd32de3e337, type: 3}
   Spawned: []
   Active: []
-  Chance: 100
+  Chance: 20
 --- !u!1001 &1149963848
 PrefabInstance:
   m_ObjectHideFlags: 0
