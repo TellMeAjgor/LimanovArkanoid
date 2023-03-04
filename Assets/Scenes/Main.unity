@@ -890,14 +890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Available:
-  - {fileID: 9156011772379240284, guid: d56529291ee12440b89251dc06f007fb, type: 3}
-  - {fileID: 4040597226822004721, guid: a8ea0f466fc0432499f47c5e20cb6e81, type: 3}
   - {fileID: -4458152209185480158, guid: 55c184346cfc1f54e95ff61a3afbe0d6, type: 3}
-  - {fileID: 8694000418170342007, guid: 5997a7fc799ed5343995b2c5d6706d11, type: 3}
-  - {fileID: 3180578353887532312, guid: 801e080ec2e7f40a1b61a06bbf2cc202, type: 3}
-  - {fileID: -7172057389271055848, guid: 093711da46fc14c67929d1a050c1be3d, type: 3}
-  - {fileID: 2129550736088157265, guid: 96784c2ba40444104b7689f65724e5cc, type: 3}
-  - {fileID: -9206319753120060726, guid: c7aca1d411dfc406ca771fd32de3e337, type: 3}
   Spawned: []
   Active: []
   Chance: 100
