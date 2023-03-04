@@ -47,6 +47,7 @@ public class PlatformScript : MonoBehaviour
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
+        _audioSource.volume = 0.5f;
     }
 
     // Update is called once per frame
@@ -90,10 +91,11 @@ public class PlatformScript : MonoBehaviour
                 ballRB.velocity *= new Vector2(speedMultiplier, speedMultiplier);
             }           
         }
-        else if (collision.gameObject.tag == "Collectable")
-        {
-            _audioSource.Play();
-        }
+    }
+
+    public void PlayCollectableSound()
+    {
+        _audioSource.Play();
     }
 
     public void StartShooting()

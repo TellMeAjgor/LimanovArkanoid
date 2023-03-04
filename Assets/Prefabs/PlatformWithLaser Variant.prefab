@@ -9927,6 +9927,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 2710870983558096135, guid: 94a630d89f5bfea4ea18d015eaa8fc66, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d5d0dd793e5814bc68d80f2498de5b4e, type: 3}
     - target: {fileID: 2710870983558096138, guid: 94a630d89f5bfea4ea18d015eaa8fc66, type: 3}
       propertyPath: leftParticles
       value: 

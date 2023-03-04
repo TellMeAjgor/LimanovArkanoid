@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     {
         if (BallsManager.Instance.Balls.Count <= 0)
         {
+
             this.lives--;
             TextManager.Instance.updateLivesText();
             foreach (var collectable in CollectableManager.Instance.Active)
